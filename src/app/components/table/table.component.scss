@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+
+  th {
+    color: #d6d5d5;
+    font-size: 1.1em;
+  }
+
+  tr.mat-row {
+    text-align: center;
+    transition: all ease-in-out .2;
+
+    &:hover {
+      background: rgba(black, .3);
+    }
+  }
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

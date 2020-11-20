@@ -1,0 +1,22 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+button[mat-button] {
+  margin-left: 20px;
+
+  &.active {
+    background-color: rgba(black, .4);
+  }
+}
+
+.img-container {
+  text-align: center;
+  margin-top: 5px;
+  cursor: pointer;
+
+  img {
+    height: 55px;
+    margin-right: 5px;
+  }
+}

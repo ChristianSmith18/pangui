@@ -1,0 +1,12 @@
+<mat-grid-list cols="4" rowHeight="90.4vh">
+  <mat-grid-tile [colspan]="3">
+    <div class="table-container">
+      <app-table [dataElements]="twitterElements"></app-table>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="filter-container">
+      <app-filter-column [data]="twitterElements"></app-filter-column>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

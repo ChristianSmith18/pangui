@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <div class="img-container" (click)="menuEvent()">
+    <img src="assets/pang-gui.png" alt="" />
+  </div>
+  <span>PangGui</span>
+  <span class="spacer"></span>
+  <button
+    *ngFor="let route of routes"
+    mat-button
+    [routerLink]="route.route"
+    routerLinkActive="active"
+  >
+    {{ route.name }}
+  </button>
+</mat-toolbar>

@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <div class="column-filter-container">
+    <mat-form-field>
+      <mat-label>Búsqueda avanzada</mat-label>
+      <input
+        matInput
+        placeholder="Ej. column === 'covid'"
+        #searchInput
+        autocomplete="off"
+        (keydown.enter)="applyFilter()"
+      />
+    </mat-form-field>
+  </div>
+  <button
+    mat-mini-fab
+    color="basic"
+    style="margin-left: 10px"
+    (click)="applyFilter()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-selection-list #myFilters>
+  <ng-container *ngFor="let filter of filters">
+    <mat-list-option [selected]="filter.use">
+      {{ filter.sentence }}
+    </mat-list-option>
+  </ng-container>
+</mat-selection-list>
+
+<p>Filtros aplicados: {{ myFilters.selectedOptions.selected.length }}</p>

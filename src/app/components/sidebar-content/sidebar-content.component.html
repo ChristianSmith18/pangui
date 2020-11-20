@@ -1,0 +1,285 @@
+<mat-toolbar>
+  <mat-form-field>
+    <mat-label>Búsqueda de tweets</mat-label>
+    <input
+      matInput
+      placeholder="Ej. Plebiscito 2020"
+      [(ngModel)]="inputText"
+      autocomplete="off"
+    />
+    <button
+      mat-button
+      *ngIf="inputText"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="inputText = ''"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-toolbar>
+
+<img src="assets/comunas_santiago.svg" usemap="#image-map" />
+
+<map name="image-map">
+  <area
+    alt="Quilicura"
+    title="Quilicura"
+    coords="148,75,41"
+    shape="circle"
+    (click)="sendQuery(0)"
+  />
+  <area
+    alt="Huechuraba"
+    title="Huechuraba"
+    coords="246,87,29"
+    shape="circle"
+    (click)="sendQuery(1)"
+  />
+  <area
+    alt="Vitacura"
+    title="Vitacura"
+    coords="336,110,29"
+    shape="circle"
+    (click)="sendQuery(2)"
+  />
+  <area
+    alt="Lo Barnechea"
+    title="Lo Barnechea"
+    coords="424,61,33"
+    shape="circle"
+    (click)="sendQuery(3)"
+  />
+  <area
+    alt="Renca"
+    title="Renca"
+    coords="139,143,24"
+    shape="circle"
+    (click)="sendQuery(4)"
+  />
+  <area
+    alt="Conchalí"
+    title="Conchalí"
+    coords="209,120,22"
+    shape="circle"
+    (click)="sendQuery(5)"
+  />
+  <area
+    alt="Recoleta"
+    title="Recoleta"
+    coords="261,148,27"
+    shape="circle"
+    (click)="sendQuery(6)"
+  />
+  <area
+    alt="Las Condes"
+    title="Las Condes"
+    coords="422,151,50"
+    shape="circle"
+    (click)="sendQuery(7)"
+  />
+  <area
+    alt="Independencia"
+    title="Independencia"
+    coords="220,165,19"
+    shape="circle"
+    (click)="sendQuery(8)"
+  />
+  <area
+    alt="Cerro Navia"
+    title="Cerro Navia"
+    coords="119,177,17"
+    shape="circle"
+    (click)="sendQuery(9)"
+  />
+  <area
+    alt="Pudahuel"
+    title="Pudahuel"
+    coords="78,208,32"
+    shape="circle"
+    (click)="sendQuery(10)"
+  />
+  <area
+    alt="Quinta Normal"
+    title="Quinta Normal"
+    coords="179,187,23"
+    shape="circle"
+    (click)="sendQuery(11)"
+  />
+  <area
+    alt="Santiago"
+    title="Santiago"
+    coords="237,222,32"
+    shape="circle"
+    (click)="sendQuery(12)"
+  />
+  <area
+    alt="Providencia"
+    title="Providencia"
+    coords="291,189,26"
+    shape="circle"
+    (click)="sendQuery(13)"
+  />
+  <area
+    alt="Lo Prado"
+    title="Lo Prado"
+    coords="150,214,20"
+    shape="circle"
+    (click)="sendQuery(14)"
+  />
+  <area
+    alt="Estación Central"
+    title="Estación Central"
+    coords="180,242,23"
+    shape="circle"
+    (click)="sendQuery(15)"
+  />
+  <area
+    alt="Ñuñoa"
+    title="Ñuñoa"
+    coords="306,232,24"
+    shape="circle"
+    (click)="sendQuery(16)"
+  />
+  <area
+    alt="La Reina"
+    title="La Reina"
+    coords="381,213,27"
+    shape="circle"
+    (click)="sendQuery(17)"
+  />
+  <area
+    alt="Maipú"
+    title="Maipú"
+    coords="103,323,43"
+    shape="circle"
+    (click)="sendQuery(18)"
+  />
+  <area
+    alt="Cerrillos"
+    title="Cerrillos"
+    coords="161,293,28"
+    shape="circle"
+    (click)="sendQuery(19)"
+  />
+  <area
+    alt="Pedro Aguirre Cerda"
+    title="Pedro Aguirre Cerda"
+    coords="208,275,23"
+    shape="circle"
+    (click)="sendQuery(20)"
+  />
+  <area
+    alt="San Miguel"
+    title="San Miguel"
+    coords="241,287,21"
+    shape="circle"
+    (click)="sendQuery(21)"
+  />
+  <area
+    alt="San Joaquin"
+    title="San Joaquin"
+    coords="274,285,18"
+    shape="circle"
+    (click)="sendQuery(22)"
+  />
+  <area
+    alt="Macul"
+    title="Macul"
+    coords="309,276,24"
+    shape="circle"
+    (click)="sendQuery(23)"
+  />
+  <area
+    alt="Peñalolen"
+    title="Peñalolen"
+    coords="386,273,38"
+    shape="circle"
+    (click)="sendQuery(24)"
+  />
+  <area
+    alt="Lo Espejo"
+    title="Lo Espejo"
+    coords="195,323,20"
+    shape="circle"
+    (click)="sendQuery(25)"
+  />
+  <area
+    alt="La Cisterna"
+    title="La Cisterna"
+    coords="228,337,21"
+    shape="circle"
+    (click)="sendQuery(26)"
+  />
+  <area
+    alt="San Ramón"
+    title="San Ramón"
+    coords="256,358,15"
+    shape="circle"
+    (click)="sendQuery(27)"
+  />
+  <area
+    alt="La Granja"
+    title="La Granja"
+    coords="280,340,16"
+    shape="circle"
+    (click)="sendQuery(28)"
+  />
+  <area
+    alt="La Florida"
+    title="La Florida"
+    coords="336,346,40"
+    shape="circle"
+    (click)="sendQuery(29)"
+  />
+  <area
+    alt="Padre Hurtado"
+    title="Padre Hurtado"
+    coords="47,403,24"
+    shape="circle"
+    (click)="sendQuery(30)"
+  />
+  <area
+    alt="San Bernardo"
+    title="San Bernardo"
+    coords="179,447,47"
+    shape="circle"
+    (click)="sendQuery(31)"
+  />
+  <area
+    alt="El Bosque"
+    title="El Bosque"
+    coords="214,383,27"
+    shape="circle"
+    (click)="sendQuery(32)"
+  />
+  <area
+    alt="La Pintana"
+    title="La Pintana"
+    coords="261,422,35"
+    shape="circle"
+    (click)="sendQuery(33)"
+  />
+  <area
+    alt="Puente Alto"
+    title="Puente Alto"
+    coords="346,430,42"
+    shape="circle"
+    (click)="sendQuery(34)"
+  />
+  <area
+    alt="Pirque"
+    title="Pirque"
+    coords="340,495,22"
+    shape="circle"
+    (click)="sendQuery(35)"
+  />
+  <area
+    alt="San José de Maipo"
+    title="San José de Maipo"
+    coords="456,398,36"
+    shape="circle"
+    (click)="sendQuery(36)"
+  />
+</map>
