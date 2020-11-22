@@ -31,6 +31,9 @@ export class TableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource = new MatTableDataSource(this.dataElements);
+    this.paginator._intl.itemsPerPageLabel = 'Items por página';
+    this.paginator._intl.nextPageLabel = 'Página siguiente';
+    this.paginator._intl.previousPageLabel = 'Página anterior';
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

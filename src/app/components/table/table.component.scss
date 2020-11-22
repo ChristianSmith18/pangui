@@ -21,3 +21,8 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+*::selection {
+  background-color: #F4D03F;
+  color: white;
+}

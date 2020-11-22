@@ -16,9 +16,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ChartsModule } from 'ng2-charts';
 
+// Modules
 import { AppRoutingModule } from './app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TableComponent } from './components/table/table.component';
@@ -27,6 +30,8 @@ import { FilterComponent } from './pages/filter/filter.component';
 import { StatsComponent } from './pages/stats/stats.component';
 import { SidebarContentComponent } from './components/sidebar-content/sidebar-content.component';
 import { FilterColumnComponent } from './components/filter-column/filter-column.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ConfigStatsComponent } from './components/config-stats/config-stats.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +43,15 @@ import { FilterColumnComponent } from './components/filter-column/filter-column.
     StatsComponent,
     SidebarContentComponent,
     FilterColumnComponent,
+    ChartComponent,
+    ConfigStatsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ChartsModule,
     MatTableModule,
     MatToolbarModule,
     MatButtonModule,

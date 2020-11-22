@@ -50,7 +50,7 @@ export class SidebarContentComponent implements OnInit {
     { latitude: -33.7254145, longitude: -70.6651245 },
     { latitude: -33.6423367, longitude: -70.3669132 },
   ];
-  inputText: string = null;
+  inputText = '';
 
   constructor() {}
 

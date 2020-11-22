@@ -10,6 +10,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+span,
+th,
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
 
 .mat-sort-header-container {
   justify-content: center !important;
