@@ -21,7 +21,7 @@ export class StatsComponent implements OnInit {
   ) {
     this.spinner.show();
 
-    const dataStoraged = localStorage.getItem('statsData');
+    const dataStoraged = localStorage.getItem('twitterQuery');
     if (dataStoraged) {
       const dataSaved = JSON.parse(
         decodeURIComponent(escape(window.atob(dataStoraged)))
@@ -29,23 +29,6 @@ export class StatsComponent implements OnInit {
       this.dataProcess(dataSaved);
       this.spinner.hide();
     }
-
-    this._twitter
-      .getTwits({
-        query: 'retiro afp',
-        latitude: -33.4976093,
-        longitude: -70.6713199,
-      })
-      .subscribe((resp) => {
-        console.log(resp);
-        this.dataProcess(resp);
-
-        this.spinner.hide();
-        localStorage.setItem(
-          'statsData',
-          btoa(unescape(encodeURIComponent(JSON.stringify(resp))))
-        );
-      });
   }
 
   ngOnInit(): void {}

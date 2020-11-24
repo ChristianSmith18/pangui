@@ -71,4 +71,5 @@ export interface ParseData {
   tweet: string;
   retweets: number;
   language: string;
+  tweetTokenization: string[];
 }

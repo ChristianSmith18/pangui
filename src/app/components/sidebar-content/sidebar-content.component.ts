@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { TwitterConnectionService } from 'src/app/services/twitter-connection.service';
 
 interface Coordinates {
   latitude: number;
@@ -52,7 +54,10 @@ export class SidebarContentComponent implements OnInit {
   ];
   inputText = '';
 
-  constructor() {}
+  constructor(
+    private _twitterConnection: TwitterConnectionService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -61,10 +66,19 @@ export class SidebarContentComponent implements OnInit {
   }
 
   sendQuery(index: number): void {
+    this.spinner.show();
     const data = {
       query: this.inputText.trim(),
       ...this.locations[index],
     };
-    console.log(data);
+    this._twitterConnection.getTwits(data).subscribe((resp) => {
+      localStorage.setItem(
+        'twitterQuery',
+        btoa(unescape(encodeURIComponent(JSON.stringify(resp))))
+      );
+      this.spinner.hide();
+      console.log(resp);
+      window.location.reload();
+    });
   }
 }

@@ -7,3 +7,13 @@
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
+
+<button
+  id="button-csv"
+  mat-fab
+  color="warn"
+  title="Descargar como CSV"
+  (click)="downloadAsCsv()"
+>
+  <mat-icon>save_alt</mat-icon>
+</button>
