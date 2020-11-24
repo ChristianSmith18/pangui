@@ -6,7 +6,10 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <div class="filter-container">
-      <app-filter-column [data]="twitterElements"></app-filter-column>
+      <app-filter-column
+        [data]="twitterElements"
+        (filteredDataEvent)="updateValues($event)"
+      ></app-filter-column>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

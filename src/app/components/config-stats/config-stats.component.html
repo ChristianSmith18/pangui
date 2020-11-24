@@ -1,12 +1,18 @@
-<div class="text-center">
-  <table class="rwd-table">
-    <tr>
-      <th>Nombre</th>
-      <th>Tipo</th>
-    </tr>
-    <tr *ngFor="let item of data">
-      <td>{{ item.name }}</td>
-      <td>{{ item.type }}</td>
-    </tr>
-  </table>
+<div class="bg-container">
+  <div class="button-container" (click)="onClick('bar')">
+    <img src="assets/bar-chart.svg" alt="" width="50px" />
+    <p>Bar Chart</p>
+  </div>
+  <div class="button-container" (click)="onClick('pie')">
+    <img src="assets/pie-chart.svg" alt="" width="50px" />
+    <p>Pie Chart</p>
+  </div>
+  <div class="button-container" (click)="onClick('doughnut')">
+    <img src="assets/doughnut-chart.svg" alt="" width="50px" />
+    <p>Doughnut Chart</p>
+  </div>
+  <div class="button-container" (click)="onClick('polarArea')">
+    <img src="assets/polar-area-chart.svg" alt="" width="50px" />
+    <p>Polar Area Chart</p>
+  </div>
 </div>

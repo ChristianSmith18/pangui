@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular material modules
 import { MatTableModule } from '@angular/material/table';
@@ -16,10 +17,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ChartsModule } from 'ng2-charts';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
+import { ChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // Components
 import { AppComponent } from './app.component';
@@ -51,6 +53,7 @@ import { ConfigStatsComponent } from './components/config-stats/config-stats.com
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ChartsModule,
     MatTableModule,
     MatToolbarModule,
@@ -64,6 +67,7 @@ import { ConfigStatsComponent } from './components/config-stats/config-stats.com
     MatGridListModule,
     MatListModule,
     MatSnackBarModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

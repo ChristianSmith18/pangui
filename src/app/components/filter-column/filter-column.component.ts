@@ -1,3 +1,4 @@
+import { OnChanges, SimpleChanges } from '@angular/core';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -8,7 +9,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { MatSelectionList } from '@angular/material/list';
+import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Condition {
@@ -22,37 +23,56 @@ interface Condition {
   templateUrl: './filter-column.component.html',
   styleUrls: ['./filter-column.component.scss'],
 })
-export class FilterColumnComponent implements AfterViewInit {
+export class FilterColumnComponent implements AfterViewInit, OnChanges {
   @ViewChild('searchInput') searchInput: ElementRef;
   @ViewChild('myFilters') myFilters: MatSelectionList;
   @Input() data: any[];
-  filteredData: any[];
-  @Output() filteredDataEvent = new EventEmitter<any[]>();
+  filteredData: any[] = [];
+  @Output() filteredDataEvent = new EventEmitter<{
+    data: any[];
+    isValid: boolean;
+  }>();
   filters: Condition[] = [];
 
   constructor(private _snackBar: MatSnackBar) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.data) {
+      this.filteredData = [...this.data];
+    }
+    console.log(this.filteredData);
+  }
+
   ngAfterViewInit(): void {
     this.myFilters.selectedOptions.changed.subscribe(() => {
-      this.filters.map((filter) => {
-        if (filter.use) {
-          if (this.filteredData && this.filteredData.length > 0) {
-            console.log('CON DATA');
-            this.filteredData = this.filteredData.filter((item) =>
-              eval(this.applyFormat(filter.sentence))
-            );
-          } else {
-            console.log('SIN DATA');
-            this.filteredData = this.data.filter((item) => {
-              console.log(this.applyFormat(filter.sentence));
-              return eval(this.applyFormat(filter.sentence));
-            });
+      // console.log(this.myFilters.selectedOptions.selected);
+      if (
+        this.myFilters.selectedOptions.selected.length !== this.filters.length
+      ) {
+        this.filteredData = [...this.data];
+      }
+      setTimeout(() => {
+        this.myFilters.selectedOptions.selected.map(
+          (filterOptions: MatListOption) => {
+            if (this.myFilters.selectedOptions.selected.length > 0) {
+              const text = filterOptions._text.nativeElement.innerText;
+              this.filteredData = this.filteredData.filter((item) => {
+                return eval(this.applyFormat(text));
+              });
+            }
           }
-          console.log(this.filteredData);
+        );
+
+        if (this.myFilters.selectedOptions.selected.length === 0) {
+          this.filteredData = [...this.data];
+          this.filteredDataEvent.emit({ data: [...this.data], isValid: false });
+        } else {
+          this.filteredDataEvent.emit({
+            data: this.filteredData,
+            isValid: true,
+          });
         }
-      });
-      // PENDIENTE EL FILTRO DE BUSQUEDA PERSONALIZADO
-      // NO FILTRA BIEN, LA PRIMERA CONDICIÓN SI, DE LA SEGUNDA EN ADELANTE NO
+      }, 0);
     });
   }
 
