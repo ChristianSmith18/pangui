@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["chart.js"],
+            "allowedCommonJsDependencies": ["chart.js", "json-2-csv"],
             "outputPath": "dist/pang-gui",
             "index": "src/index.html",
             "main": "src/main.ts",

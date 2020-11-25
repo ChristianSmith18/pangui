@@ -12,7 +12,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ApiResponse, ParseData } from 'src/app/services/api-response.interface';
+import {
+  ApiResponse,
+  ParseData,
+} from 'src/app/services/api-response.interface';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,11 +29,11 @@ export class TableComponent implements AfterViewInit, OnChanges {
   @Input() dataElements: ParseData[] = [];
 
   displayedColumns: string[] = [
-    'id',
     'name',
     'location',
     'followers',
     'tweet',
+    'favorites',
     'retweets',
     'language',
   ];
@@ -48,9 +51,7 @@ export class TableComponent implements AfterViewInit, OnChanges {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
-    if (this.dataElements?.length > 0) {
-      this.spinner.hide();
-    }
+    this.spinner.hide();
   }
 
   ngAfterViewInit(): void {

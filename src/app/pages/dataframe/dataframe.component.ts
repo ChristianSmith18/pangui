@@ -22,14 +22,6 @@ export class DataframeComponent implements OnInit {
       ) as Data;
       this.dataProcess(dataSaved);
     }
-
-    console.log(
-      JSON.parse(
-        decodeURIComponent(
-          escape(window.atob(localStorage.getItem('twitterParseQuery')))
-        )
-      )
-    );
   }
 
   ngOnInit(): void {}
@@ -45,8 +37,10 @@ export class DataframeComponent implements OnInit {
           followers: data.TweetInfo.user.followers_count,
           tweet: data.TweetInfo.text,
           retweets: data.TweetInfo.retweet_count,
+          favorites: data.TweetInfo.favorite_count,
           language: data.TweetInfo.lang,
           tweetTokenization: data.TweetTokenization,
+          tweetLemma: data.TweetLemma,
         } as ParseData)
     );
     this.twitterElements = newParseArray;

@@ -56,6 +56,7 @@ export interface TweetInfo {
 export interface ApiResponse {
   TweetInfo: TweetInfo;
   TweetTokenization: string[];
+  TweetLemma: string[];
   id: string;
 }
 
@@ -70,6 +71,8 @@ export interface ParseData {
   followers: number;
   tweet: string;
   retweets: number;
+  favorites: number;
   language: string;
   tweetTokenization: string[];
+  tweetLemma: string[];
 }

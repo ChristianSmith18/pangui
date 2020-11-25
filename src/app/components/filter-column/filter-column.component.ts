@@ -40,12 +40,10 @@ export class FilterColumnComponent implements AfterViewInit, OnChanges {
     if (this.data) {
       this.filteredData = [...this.data];
     }
-    console.log(this.filteredData);
   }
 
   ngAfterViewInit(): void {
     this.myFilters.selectedOptions.changed.subscribe(() => {
-      // console.log(this.myFilters.selectedOptions.selected);
       if (
         this.myFilters.selectedOptions.selected.length !== this.filters.length
       ) {
@@ -78,6 +76,7 @@ export class FilterColumnComponent implements AfterViewInit, OnChanges {
 
   private applyFormat(sentence: string): string {
     const keys = this.getColumns(this.data[0]);
+    console.log(keys);
     // tslint:disable-next-line: forin
     for (const key of keys) {
       sentence = sentence.replace(key, `item.${key}`);
